@@ -28,3 +28,12 @@ JOIN Invoice i
 ON il.InvoiceId = i.InvoiceId
 GROUP BY 1, 2
 ORDER BY 1, 2, 3;
+
+/*Query 4 - Which sales agent is associated with the top customer in terms of average invoice total?*/
+SELECT c.CustomerId, c.FirstName, c.LastName, AVG(i.Total) Avg_Invoice_Total, c.SupportRepId
+FROM Customer c
+JOIN Invoice i
+ON i.CustomerId = c.CustomerId
+GROUP BY 1, 2, 3, 5
+ORDER BY 4 DESC
+LIMIT 10;
