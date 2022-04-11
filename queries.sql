@@ -5,3 +5,14 @@ JOIN Customer c
 ON e.EmployeeId = c.SupportRepId
 GROUP BY 1, 2, 3, 4
 ORDER BY 5 DESC;
+
+/* Query 2 - Top 10 customers in terms of units bought*/
+SELECT c.CustomerId, c.FirstName, c.LastName, SUM(il.Quantity) Total_Quantity
+FROM InvoiceLine il
+JOIN Invoice i
+ON il.InvoiceId = i.InvoiceId
+JOIN Customer c
+ON i.CustomerId = c.CustomerId
+GROUP BY 1, 2, 3
+ORDER BY 4 DESC
+LIMIT 10;
