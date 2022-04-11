@@ -8,3 +8,7 @@ with understanding their customers and employees, and their invoice information.
 # Software Requirements:
 * DB Browser for SQLite 
 * Atom text editor 
+
+# Project Attributes:
+* Proposed 4 questions that require at least one JOIN and one Aggregation to query the Chinook Database
+* Answered the questions using SQL
