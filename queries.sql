@@ -16,3 +16,15 @@ ON i.CustomerId = c.CustomerId
 GROUP BY 1, 2, 3
 ORDER BY 4 DESC
 LIMIT 10;
+
+/*Query 3 - Is there a certain trend in media type with regards to the customer's country?*/
+SELECT i.BillingCountry, m.Name Media_Type, COUNT(*)
+FROM MediaType m
+JOIN Track t
+ON m.MediaTypeId = t.MediaTypeId
+JOIN InvoiceLine il
+ON t.TrackId = il.TrackId
+JOIN Invoice i
+ON il.InvoiceId = i.InvoiceId
+GROUP BY 1, 2
+ORDER BY 1, 2, 3;
